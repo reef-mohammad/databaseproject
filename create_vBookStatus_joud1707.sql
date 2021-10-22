@@ -1,0 +1,1 @@
+create or replace view vbookstate as ( select bo.ISBN,bo.name_B ,bo.status_B, bo2.Author from book bo join Author bo2 on bo.ISBN = bo2.ISBN where bo.status_B ='available');
