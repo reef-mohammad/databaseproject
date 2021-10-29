@@ -5,7 +5,8 @@ co_S int);
 
 create table staff(
 pin int not null primary key ,
-salary decimal(3,1),
+  password int ,
+salary int,
 phone int ,
 f_name varchar(20),
 l_name varchar(20) ,
