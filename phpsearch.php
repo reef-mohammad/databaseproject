@@ -24,12 +24,13 @@ if ($conn->connect_error){
  <th> <p style='color:#0d98ba;'> BOOK NAME</th></p>
  <th> <p style='color:#0d98ba;'> STATUS </th></p>
  <th> <p style='color:#0d98ba;'> SECTION_ID </th></p>
- <th> <p style='color:#0d98ba;'>AUTHOR </th></p>
+ <th> <p style='color:#0d98ba;'> AUTHOR </th></p>
+ <th> <p style='color:#0d98ba;'>borrower </th></p>
  </tr></thead>";
 
 
 
-$sql= "SELECT * FROM book c JOIN Author l ON c.ISBN=l.ISBN
+$sql= "SELECT * FROM book c JOIN Author l ON c.ISBN=l.ISBN JOIN book_borrower b on c.ISBN =b.ISBN
  WHERE name_B LIKE '%$search%'";
 
 
@@ -44,6 +45,7 @@ while($row = $result->fetch_assoc() ){
  echo "<td> <h4><p style='color:#6a6c6d;'>".$row["status_B"]. "</h4></td> </p>";
   echo "<td> <h4> <p style='color:#6a6c6d;text-align:center;'>".$row["id_s"]. "</h4></td></p>";
 	  echo "<td> <h4> <p style='color:#6a6c6d;text-align:center;'>".$row["Author"]. "</h4></td></p>";
+	  echo "<td> <h4> <p style='color:#6a6c6d;text-align:center;'>".$row["borrower"]. "</h4></td></p>";
 "</tr></tbody>"; }
 
 
@@ -54,3 +56,4 @@ while($row = $result->fetch_assoc() ){
 $conn->close();
 
 ?>
+
